@@ -12,9 +12,6 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
-    
-    
-    
     //Tests that the characters are alphabetic
     @Test
     public void allCharactersAreAlphabetic()

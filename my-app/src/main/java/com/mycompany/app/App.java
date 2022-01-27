@@ -12,8 +12,8 @@ public class App
 	
     public static void main( String[] args )
     {
-    	Database db = new Database();
-    	ArrayList<String[]> data = new ArrayList<String[]>();
+    	Database db;
+    	ArrayList<String[]> data = null;
     	try {
     		data = parseCSV(FILENAME);
     	} catch (FileNotFoundException e) {
@@ -23,7 +23,7 @@ public class App
     		// TODO Auto-generated catch block
     		e.printStackTrace();
     	}
-    	db.setData(data);
+    	db = createDatabaseFromData(data);
     	db.printAlphabets();
     }
 	
@@ -39,6 +39,13 @@ public class App
     	}
     	reader.close();
 		return data;
+    }
+    
+    public static Database createDatabaseFromData(ArrayList<String[]> data) {
+    	if(data == null) return null;
+    	Database db = new Database();
+    	db.setData(data);
+		return db;
     }
 
 }
