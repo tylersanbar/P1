@@ -12,7 +12,8 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
-   /* App testApp = new App();
+   
+    App testApp = new App();
     //Tests that the characters are alphabetic
     @Test
     public void allCharactersAreAlphabetic()
@@ -26,5 +27,5 @@ public class AppTest
         }
         assertTrue( allAlphabetic );
     }
-    */
+    
 }

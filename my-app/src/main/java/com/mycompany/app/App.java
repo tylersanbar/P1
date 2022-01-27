@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class App 
 {
-	private Alphabet[] alphabets;
+	private static Alphabet[] alphabets;
 
 
     public static void main( String[] args )
@@ -47,9 +47,10 @@ public class App
 			}
 		}
 	}
+	Alphabet[] abs = new Alphabet[names.length];
 	int num = 0;
 	for(String n : names){
-		System.out.println(n);
+		
 		char[] l = new char[split.size()-1];
 		for(int i = 0; i < l.length; i++){
 			l[i] = letters[i][num];
@@ -62,10 +63,17 @@ public class App
 		for(int i = 0; i < legitChars; i++){
 			finalAlphabet[i] = l[i];
 		}
+		//Check
+		System.out.println(n);
 		System.out.println(finalAlphabet);
 		System.out.println(finalAlphabet.length);
 		Alphabet a = new Alphabet(n,finalAlphabet);
+		abs[num] = a;
 		num++;
 	}
+	alphabets = abs;
+	}
+	public Alphabet[] getAlphabets(){
+		return alphabets;
 	}
 }
