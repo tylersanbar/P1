@@ -46,15 +46,15 @@ public class App
     		data.add(rowData);
     		if(numRows > 100) throw new IllegalArgumentException("Too many rows in CSV data");
     	}
+    	if(data.size() == 0) throw new IllegalArgumentException("No data read");
     	reader.close();
     	br.close();
 		return data;
     }
     
     public static Database createDatabaseFromData(ArrayList<String[]> data) {
-    	if(data == null) return null;
     	Database db = new Database();
-    	db.setData(data);
+    	if(data != null) db.setData(data);
 		return db;
     }
 

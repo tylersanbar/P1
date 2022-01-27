@@ -30,6 +30,12 @@ public class AppTest
         assertTrue(digitLetter == null);
     }
     @Test
+    public void emptyAlphabetsCreateDefault() {
+    	Alphabet empty = new Alphabet(null, null);
+    	assertTrue(empty.getLetters().get(0).toString().equals("a"));
+    	assertTrue(empty.getName().equals("default"));
+    }
+    @Test
     public void fileIsCSV() {
     	String filename = App.FILENAME;
     	assertTrue(filename.endsWith(".csv"));

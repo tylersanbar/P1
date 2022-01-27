@@ -6,9 +6,18 @@ public class Alphabet{
     private String name;
     private ArrayList<Letter> letters;
     
+    public Alphabet() {
+    	this.name = "default";
+    	this.letters = new ArrayList<Letter>();
+    	letters.add(new Letter('a'));
+    }
     public Alphabet(String name, ArrayList<Letter> letters){
-        this.name = name;
-        this.letters = letters;
+        this();
+    	if(name != null & letters != null) {
+    		 this.name = name;
+    	     this.letters = letters;
+    	}
+       
     }
 
 
