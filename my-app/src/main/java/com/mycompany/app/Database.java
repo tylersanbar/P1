@@ -50,7 +50,12 @@ public class Database {
 	private Letter getLetterFromString(String s) {
 		Letter letter = null;
 		if(s.length() == 1) {
+			try {
 			letter = new Letter(s.charAt(0));
+			}
+			catch(IllegalArgumentException e) {
+				
+			}
 		}
 		return letter;
 	}

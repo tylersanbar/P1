@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class App 
 {
-	private static String FILENAME = "data/alphabets.csv";
+	static String FILENAME = "data/alphabets.csv";
 	
     public static void main( String[] args )
     {
@@ -17,27 +17,37 @@ public class App
     	try {
     		data = parseCSV(FILENAME);
     	} catch (FileNotFoundException e) {
-    		// TODO Auto-generated catch block
     		e.printStackTrace();
     	} catch (IOException e) {
-    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	} catch (IllegalArgumentException e) {
     		e.printStackTrace();
     	}
+    	
     	db = createDatabaseFromData(data);
     	db.printAlphabets();
     }
 	
 	
-    public static ArrayList<String[]> parseCSV(String filename) throws FileNotFoundException, IOException {
+    public static ArrayList<String[]> parseCSV(String filename) throws IllegalArgumentException, FileNotFoundException, IOException {
     	FileReader reader = new FileReader(filename);
     	BufferedReader br = new BufferedReader(reader);
     	ArrayList<String[]> data = new ArrayList<String[]>();
     	String row;
+    	String[] rowData;
+    	int numRows = 0;
+    	int numColumns = 0;
     	while((row=br.readLine()) != null)
     	{
-    		data.add(row.split(","));
+    		numRows++;
+    		rowData = row.split(",");
+    		if(numRows==1) numColumns = rowData.length;
+    		if(rowData.length > numColumns) throw new IllegalArgumentException("Extra column data");
+    		data.add(rowData);
+    		if(numRows > 100) throw new IllegalArgumentException("Too many rows in CSV data");
     	}
     	reader.close();
+    	br.close();
 		return data;
     }
     

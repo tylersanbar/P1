@@ -14,23 +14,37 @@ public class AppTest
      */
     //Tests that the characters are alphabetic
     @Test
-    public void allCharactersAreAlphabetic()
+    public void lettersOnlyAlphabetic()
     {
-        boolean allAlphabetic = true;
-        //App testApp = new App();
-     
-        //Alphabet[] test = testApp.getAlphabets();
-        //char[] c = test[0].getLetters();
-        
-
-        // if(!Character.isAlphabetic(x)) allAlphabetic = false;
-        /*for(Alphabet a : testApp.getAlphabets()){
-            for(char c : a.getLetters()){
-                if(!Character.isAlphabetic(c)) allAlphabetic = false;
-            }
+    	Letter alphaLetter = null;
+    	Letter digitLetter = null;
+        try {
+        	alphaLetter = new Letter('c');
+        	digitLetter = new Letter('1');
         }
-        */
-        assertTrue( allAlphabetic );
+        catch(IllegalArgumentException e){
+        	
+        }
+     
+        assertTrue(alphaLetter != null);
+        assertTrue(digitLetter == null);
+    }
+    @Test
+    public void fileIsCSV() {
+    	String filename = App.FILENAME;
+    	assertTrue(filename.endsWith(".csv"));
+    }
+    @Test
+    public void csvContainsTitleStringsInFirstRow() {
+    	
+    }
+    @Test
+    public void csvParsesData() {
+    	
+    }
+    @Test
+    public void createAlphabetFromData() {
+    	
     }
     
 }
