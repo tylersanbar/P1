@@ -8,11 +8,14 @@ import java.util.ArrayList;
  */
 public class App 
 {
-	private static Alphabet[] alphabets;
+	private Alphabet[] alphabets;
 
-
+	public App(){
+		
+	}
     public static void main( String[] args )
     {
+    App app = new App();
     ArrayList<String[]> split = new ArrayList<String[]>();
     String[] names;
     char[][] letters;
@@ -71,9 +74,14 @@ public class App
 		abs[num] = a;
 		num++;
 	}
-	alphabets = abs;
+	app.setAlphabets(abs);
+	//System.out.println(this.alphabets[0].getLetters());
+	}
+	
+	public void setAlphabets(Alphabet[] a){
+		this.alphabets = a;
 	}
 	public Alphabet[] getAlphabets(){
-		return alphabets;
+		return this.alphabets;
 	}
 }

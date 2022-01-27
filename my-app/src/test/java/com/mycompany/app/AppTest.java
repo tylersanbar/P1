@@ -1,5 +1,5 @@
-package com.mycompany.app;
-
+package com.mycompany;
+import java.io.*;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -12,19 +12,27 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
-   
-    App testApp = new App();
+    
+    
+    
     //Tests that the characters are alphabetic
     @Test
     public void allCharactersAreAlphabetic()
     {
         boolean allAlphabetic = true;
+        //App testApp = new App();
+     
+        //Alphabet[] test = testApp.getAlphabets();
+        //char[] c = test[0].getLetters();
         
-        for(Alphabet a : app.getAlphabets()){
-            for(char c : a.getLetters){
-                if(!c.isAlphabetic()) allAlphabetic = false;
+
+        // if(!Character.isAlphabetic(x)) allAlphabetic = false;
+        /*for(Alphabet a : testApp.getAlphabets()){
+            for(char c : a.getLetters()){
+                if(!Character.isAlphabetic(c)) allAlphabetic = false;
             }
         }
+        */
         assertTrue( allAlphabetic );
     }
     
