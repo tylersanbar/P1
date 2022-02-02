@@ -41,7 +41,7 @@ public class AppTest
     	assertTrue(filename.endsWith(".csv"));
     }
     @Test
-    public void csvContainsTitleStringsInFirstRow() {
+    public void csvContainsTitleStringsInFirstRow() throws IOException, FileNotFoundException{
     	BufferedReader br = new BufferedReader(new FileReader(App.FILENAME));
     	String text = br.readLine();
     	String[] ptext = text.split(",");
@@ -55,14 +55,6 @@ public class AppTest
     	}
         br.close();
     	assertTrue(flag);
-    }
-    @Test
-    public void csvParsesData() {
-    	
-    }
-    @Test
-    public void createAlphabetFromData() {
-    	
     }
     
 }
