@@ -42,7 +42,19 @@ public class AppTest
     }
     @Test
     public void csvContainsTitleStringsInFirstRow() {
-    	
+    	BufferedReader br = new BufferedReader(new FileReader(App.FILENAME));
+    	String text = br.readLine();
+    	String[] ptext = text.split(",");
+    	boolean flag = true;
+    	for(int x = 0; x < ptext.length; ++x)
+    	{
+    		if(ptext[x].length() < 2 || ptext[x].length() > 10)
+    		{
+    			flag = false;
+    		}
+    	}
+        br.close();
+    	assertTrue(flag);
     }
     @Test
     public void csvParsesData() {
