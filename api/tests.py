@@ -53,3 +53,26 @@ class CCAPITest(APITestCase):
         response = self.userprofile_view(request)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
+    def test_test(self):
+        #import requests,json
+        import json
+        #request = self.factory.get('/')
+        headers ={'Content-Type':'application/json',"Authorization":"Token < authorized token >"}
+        data = {"function":"cybercomq.tasks.tasks.add","queue":"celery","args":[2,2],"kwargs":{},"tags":["add"]}
+        req=self.factory.post("/api/queue/run/cybercomq.tasks.tasks.add/.json",data=data,headers=headers, format='json') 
+        print("Test Post")
+        #print("Attributes = ",dir(req))
+        #print("GET!", req.GET)
+        #print("POST!", req.POST)
+
+        print("Test Get")
+        request=self.factory.get("/api/queue/usertasks/")
+        force_authenticate(request, user=self.user)
+        response = self.apiroot_view(request)
+        print(response)
+        print(dir(response))
+        print(response.content())
+        results = response.data.get('Tasks History', {})
+        print(results)
+        results2 = results.get('results')
+        self.assertEqual(results2, [2])

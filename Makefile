@@ -80,7 +80,7 @@ stop:
 	@docker-compose --compatibility down
 
 test:
-	@docker-compose exec cybercom_api python -Wa manage.py test
+	@docker-compose exec cybercom_api python -Wa manage.py test --keepdb
 
 restart_api:
 	@docker-compose restart cybercom_api
