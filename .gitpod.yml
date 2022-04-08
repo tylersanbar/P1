@@ -19,13 +19,16 @@ tasks:
 ports:
   - port: 80
     onOpen: open-preview
-    visibility: private
+    visibility: public
   - port: 443
     onOpen: ignore
+    visibility: public
   - port: 5671
     onOpen: ignore
+    visibility: public
   - port: 27017
     onOpen: ignore
+    visibility: public
 
 vscode:
   extensions:
